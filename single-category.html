@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<title>David Chu's China Bistro</title>
+  	<link rel="stylesheet" href="bootstrap-4/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="css/styles.css">
+  	<link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
+  </head>
+ 
+  <body>
+    <!-- Header -->
+  	<header>
+  		<!-- these classes are provided by bootstrap -->
+  		<nav id="header-nav" class="navbar navbar-default"> 
+  		  <!-- why we need a container and a navbar here is because we want to the yellow background of the navbar streches all the way to the right, rather than stops as the container stops. So Navbar is designed for the background-color, but all the content will sit in the container. -->
+          <div class="container"> <!-- two kinds of containers, this one changes its width based on the width of the browser. -->
+            <!-- navbar-header allocates space for brand name or logo -->
+            <div class="navbar-header">
+              <!-- float-left is an attribute in bootstrap: float left. Since these elements are all div so that they will stack, but if u want to make the brand name behind the logo pic, u should set it to float left -->
+              <a href="index.html" class="float-left d-none d-md-block d-lg-block"> <!-- visible-md (boostarp 4 has changed it) means if the sreen is medium, i want it to show, otherwise, disappear. -->
+                <div id="logo-img" alt="Logo image"></div>
+              </a>
+
+              <div class="navbar-brand">
+                <a href="index.html">
+                  <h1>David Chu's China Bistro</h1>
+                </a>
+                <p>
+                  <img src="images/brand_img.jpg" alt="Kosher certification">
+                  <span>Kosher Certified</span>
+                </p>
+              </div>
+              <!-- The class navbar-toggle is controlling the positioning of the whole button and it only displays when the screen is medium or small. The collapsed class actually does not exist in bootstrap, it just signifies to a plugin that this button is in a collapsed state. (nobody clicked on it yet and once someone clicks on it, this collase class will go away) all of that is done by a bootstrap js plugin. aria-expanded is an attribute for the sreen reader. data-target is used to select collapsable nav thich means id.-->
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
+                <!-- toggle navigation will never show up on the screen since the class is for screen reader(sr) only. -->
+                <span class="sr-only">Toggle navigation</span>
+                <!-- all these three spans are to put those icons(horizonal lines) inside our button -->
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            </div>
+            
+            <div id="collapsable-nav" class="collapse navbar-collapse">
+              <!-- nav navbar-nav means i am going to be a component of our navigation bar or navigation. navbar-right is to let them alight to the right. -->
+              <ul id="nav-list" class="nav navbar-nav navbar-right">
+                <!-- this class will give it a background so that it can indicate we now locate at this page -->
+                <li class="active">
+                  <a href="menu-categories.html">
+                    <!-- the class here is able to bring in an icon font. and i want to give it a break between the menu and the icon, and i want it to collapse if the screen is too small. br inserts a single line break.-->
+                    <span class="glyphicon glyphicon-cultery"></span><br class="hidden-xs"> Menu</a>
+                </li>
+                <li>
+                  <a href="#">
+                    <span class="glyphicon glyphicon-info-sign"></span><br class="hidden-xs"> About</a>
+                </li>
+                <li>
+                  <a href="#">
+                    <span class="glyphicon glyphicon-certificate"></span><br class="hidden-xs"> Awards</a>
+                </li>
+                <li id="phone" class="hidden-xs">
+                  <!-- if someone clicks on the phone number, it will triger the phone to try to call it. -->
+                  <a href="tel:410-602-5000">
+                    <span>410-602-5008</span></a><div>* We Deliver</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+      </nav>
+    </header>
+
+    <div id="call-btn" class="visible-xs">
+      <a class="btn" href="tel:410-602-5008">
+      <span class="glyphicon glyphicon-earphone"></span>
+      410-602-5008
+      </a>
+    </div>
+    <div id="xs-deliver" class="text-center visible-xs">* We Deliver</div>
+
+    <!-- Header ends -->
+    <!-- Home page -->
+    <div id="main-content" class="container">
+      <!-- In css, if u want to select h2 and the sibling div together, you can use #main-content h2 + div -->
+      <h2 id="menu-categories-title" class="text-center">Lunch Menu</h2>
+      <div class="tect-center"> Lunch is nor served until after 1pm. </div> 
+
+      <section class="row">
+        <div class="menu-item-tile col-md-6">
+          <div class="row">
+            <div class="col-sm-5">
+              <div class="menu-item-photo">
+                <div>D01</div>
+                <img class="img-responsive" width="250" height="150" src="images/menu/B.jpg" alt="Item">
+              </div>
+              <div class="menu-item-price">10.95<span> (pint)</span>14.95 <span>(quart)</span></div>
+            </div>
+            <div class="menu-item-description col-sm-7">
+              <h3 class="menu-item-title">Veal with Mixed Vegetables</h3>
+              <p class="menu-item-details">Lorem......</p>
+            </div>
+          </div>
+          <hr class="visible-xs">
+        </div>
+        
+        <!-- The grid system in bootstrap is based on floating elements -->
+        <!-- This class can address the potential description issues -->
+        <div class="clearfix visible-md-block visible-lg-block"></div>
+
+        <div class="menu-item-tile col-md-6">
+          <div class="row">
+            <div class="col-sm-5">
+              <div class="menu-item-photo">
+                <div>D02</div>
+                <img class="img-responsive" width="250" height="150" src="images/menu/B.jpg" alt="Item">
+              </div>
+              <div class="menu-item-price">10.95<span> (pint)</span>14.95 <span>(quart)</span></div>
+            </div>
+            <div class="menu-item-description col-sm-7">
+              <h3 class="menu-item-title">Veal with Mixed Vegetables</h3>
+              <!-- one possible issue here is that we cannot control the length of the description here, if it is too long, the second row will only have one item. (one col becomes bigger and the rest of the cols get messed up.-->
+              <p class="menu-item-details">Lorem......</p>
+            </div>
+          </div>
+          <hr class="visible-xs">
+        </div>
+      </section>
+    </div> <!-- End of #main-contnent -->
+
+    <!-- Home Page ends -->
+    <!-- Footer -->
+    <footer class="panel-footer">
+      <div class="container">
+        <div class="row">
+          <section id="hours" class="col-sm-4">
+            <span>Hours:</span><br>
+            Sun-Thurs: 11:15am - 10:00pm<br>
+            Fri: 11:15am - 2:30pm<br>
+            Saturday Closed
+            <!-- Hr means horizontal lines. when the screen is quite small, the 3 columns will stack, so that we need horizontal lines to distinct.-->
+            <hr class="visible-xs">
+          </section>
+          <section id="address" class="col-sm-4">
+            <span>Address:</span><br>
+            7105 Registerstown Road<br>
+            Baltimore, MD 21215
+            <p>* Delivery area within 3-4 miles, with minimum order of 2o dollars plus 3 dollars charge for all deliveries.</p>
+            <hr class="visible-xs">
+          </section>
+          <section id="testmonials" class="col-sm-4">
+            <p>"The best Chinese restaurant i have been to!"</p>
+            <p>"Amazing!"</p>
+          </section>
+        </div>
+        <div class="text-center">&copy; Copyright David Chu's China Bistro 2015</div> 
+      </div>
+    </footer>
+
+            
+
+  	<!-- jQuery (Bootstrap JS plugins depend on it) -->
+  	<script src="js/jquery-2.1.4.min.js"></script>
+  	<script src="bootstrap-4/js/bootstrap.min.js"></script>
+  	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  </body>
+ </html>
